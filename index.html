@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Магнит Окна | Производство и установка окон</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fc;
+            color: #1e2a3a;
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ffaa33;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffaa33;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            scroll-margin-top: 100px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-left: 6px solid #ffaa33;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            color: #003366;
+        }
+
+        h3 {
+            color: #003366;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .product-card, .service-card {
+            background: #fefefe;
+            border-radius: 20px;
+            padding: 1.2rem;
+            flex: 1 1 250px;
+            border: 1px solid #e0e7f0;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover, .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffaa33;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .product-card h4, .service-card h4 {
+            font-size: 1.4rem;
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #c75119;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffaa33;
+            color: #1e2a3a;
+            padding: 8px 18px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 12px;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background: #e69500;
+            transform: scale(1.02);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .review-item {
+            background: #f9fafc;
+            padding: 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ffaa33;
+        }
+
+        .review-name {
+            font-weight: bold;
+            color: #003366;
+        }
+
+        .review-date {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .contacts-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1.5;
+        }
+
+        .map {
+            margin-top: 1.5rem;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 260px;
+        }
+
+        footer {
+            background: #003366;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .success-msg {
+            color: #1e7e34;
+            background: #d4edda;
+            padding: 10px;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+
+        .error-msg {
+            color: #c00;
+            background: #f8d7da;
+            padding: 10px;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+
+        .admin-btn {
+            background: #003366;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .admin-panel {
+            background: #eef2fa;
+            padding: 1rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .admin-panel.show {
+            display: block;
+        }
+
+        .request-item {
+            background: white;
+            padding: 0.8rem;
+            border-radius: 12px;
+            margin-bottom: 0.8rem;
+            border: 1px solid #ddd;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 1rem;
+            }
+            nav a {
+                display: inline-block;
+                margin-bottom: 8px;
+                font-size: 0.9rem;
+                margin-right: 1rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Магнит <span>Окна</span> <span style="font-size:0.9rem;">ООО</span></div>
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#about">О нас</a>
+        <a href="#products">Продукты</a>
+        <a href="#services">Услуги</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#" id="adminToggleBtn" style="background:#ffaa33; color:#003366; padding:5px 12px; border-radius:20px;">🔒 Админ</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section id="home">
+        <h2>🏠 Надёжные окна для вашего дома</h2>
+        <p style="font-size:1.2rem; margin-bottom:1rem;">ООО «Магнит Окна» — лидер на рынке светопрозрачных конструкций с 2008 года. Мы дарим тепло, тишину и уют.</p>
+        <div class="card-grid">
+            <div class="product-card">
+                <h4>✔️ 10 лет гарантии</h4>
+                <p>На все профильные системы и монтаж.</p>
+            </div>
+            <div class="product-card">
+                <h4>🚚 Бесплатный замер</h4>
+                <p>Выезд инженера в удобное время.</p>
+            </div>
+            <div class="product-card">
+                <h4>💰 Кредит 0%</h4>
+                <p>Рассрочка без переплат на 6 месяцев.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>📖 О компании</h2>
+        <p><strong>История:</strong> Компания «Магнит Окна» основана в 2008 году. Начинали с небольшого цеха, а сегодня — это современное производство полного цикла.</p>
+        <p><strong>Миссия:</strong> Делать дома тёплыми, а жизнь комфортной, используя только сертифицированные материалы и профессиональный монтаж.</p>
+        <p><strong>Ценности:</strong> Честность, качество, забота о клиенте и экологичность.</p>
+        <h3>👥 Ключевые сотрудники</h3>
+        <ul style="margin-left: 1.5rem;">
+            <li><strong>Алексей Степанов</strong> – генеральный директор, 18 лет в оконном бизнесе.</li>
+            <li><strong>Марина Ветрова</strong> – главный технолог, эксперт по энергоэффективности.</li>
+            <li><strong>Дмитрий Горелов</strong> – руководитель монтажной службы.</li>
+        </ul>
+    </section>
+
+    <section id="products">
+        <h2>🪟 Каталог оконных изделий</h2>
+        <div class="card-grid">
+            <div class="product-card">
+                <h4>ПВХ окна REHAU</h4>
+                <p>6-камерный профиль, энергосберегающий стеклопакет. Защита от шума до 42 дБ.</p>
+                <div class="price">от 9 900 ₽/м²</div>
+                <a href="#" class="btn" onclick="alert('Подробнее о ПВХ окнах REHAU: звоните +7 (495) 123-45-67')">Подробнее</a>
+            </div>
+            <div class="product-card">
+                <h4>Алюминиевые окна</h4>
+                <p>Премиум серия. Терморазрыв, подходят для панорамного остекления.</p>
+                <div class="price">от 14 500 ₽/м²</div>
+                <a href="#" class="btn" onclick="alert('Алюминиевые профили: стиль и надёжность.')">Подробнее</a>
+            </div>
+            <div class="product-card">
+                <h4>Деревянные евроокна</h4>
+                <p>Трёхслойный клееный брус, экологично и тепло.</p>
+                <div class="price">от 22 000 ₽/м²</div>
+                <a href="#" class="btn" onclick="alert('Деревянные окна ручной работы.')">Подробнее</a>
+            </div>
+            <div class="product-card">
+                <h4>Балконное остекление</h4>
+                <p>Холодное/тёплое ПВХ, раздвижные системы.</p>
+                <div class="price">от 7 500 ₽/пог.м</div>
+                <a href="#" class="btn" onclick="alert('Балконы и лоджии – быстро и аккуратно.')">Подробнее</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>🛠️ Наши услуги</h2>
+        <div class="card-grid">
+            <div class="service-card">
+                <h4>🔧 Установка окон</h4>
+                <p>Профессиональный монтаж по ГОСТ. Швы по евростандарту.</p>
+            </div>
+            <div class="service-card">
+                <h4>🔨 Ремонт и регулировка</h4>
+                <p>Замена уплотнителей, фурнитуры, устранение перекосов.</p>
+            </div>
+            <div class="service-card">
+                <h4>📐 Консультации и замер</h4>
+                <p>Бесплатный выезд замерщика. 3D-проект за 1 день.</p>
+            </div>
+            <div class="service-card">
+                <h4>🧼 Обслуживание окон</h4>
+                <p>Сезонное обслуживание, смазка фурнитуры, настройка микропроветривания.</p>
+            </div>
+        </div>
+        <p style="margin-top:1rem; background:#eef2fa; padding:12px; border-radius:24px;">⭐ Акция: заказ установки + обслуживание = скидка 15%!</p>
+    </section>
+
+    <section id="reviews">
+        <h2>⭐ Отзывы наших клиентов</h2>
+        <div id="reviewsList">
+            <div style="text-align:center; padding:20px;">Загрузка отзывов...</div>
+        </div>
+
+        <h3>✍️ Оставить новый отзыв</h3>
+        <form id="reviewForm">
+            <div class="form-group">
+                <label>Ваше имя</label>
+                <input type="text" id="reviewName" placeholder="Например: Ольга Петрова" required>
+            </div>
+            <div class="form-group">
+                <label>Оценка</label>
+                <select id="reviewRating">
+                    <option value="5">⭐⭐⭐⭐⭐ 5</option>
+                    <option value="4">⭐⭐⭐⭐ 4</option>
+                    <option value="3">⭐⭐⭐ 3</option>
+                    <option value="2">⭐⭐ 2</option>
+                    <option value="1">⭐ 1</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Ваш отзыв</label>
+                <textarea id="reviewText" rows="3" placeholder="Поделитесь впечатлениями..." required></textarea>
+            </div>
+            <button type="submit" class="btn">➕ Добавить отзыв</button>
+            <div id="reviewMsg"></div>
+        </form>
+    </section>
+
+    <section id="contacts">
+        <h2>📞 Контакты и обратная связь</h2>
+        <div class="contacts-block">
+            <div class="contact-info">
+                <p><strong>📍 Адрес:</strong> г. Москва, ул. Промышленная, д.12, офис 305</p>
+                <p><strong>📞 Телефон:</strong> +7 (495) 123-45-67</p>
+                <p><strong>✉️ Email:</strong> info@magnitokna.ru</p>
+                <p><strong>🕒 Режим работы:</strong> Пн–Пт 9:00–20:00, Сб 10:00–17:00</p>
+            </div>
+            <div class="contact-form">
+                <h3>Форма обратной связи</h3>
+                <form id="callbackForm">
+                    <div class="form-group">
+                        <label>Ваше имя *</label>
+                        <input type="text" id="callbackName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Телефон или Email *</label>
+                        <input type="text" id="callbackContact" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Сообщение</label>
+                        <textarea id="callbackMsg" rows="2" placeholder="Хочу замер, вопрос по окнам..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">📩 Отправить</button>
+                    <div id="callbackMsgResult"></div>
+                </form>
+            </div>
+        </div>
+        <div class="map">
+            <iframe width="100%" height="260" style="border:0; border-radius: 20px;" loading="lazy" 
+                src="https://yandex.ru/map-widget/v1/?ll=37.617698,55.755864&z=12&pt=37.617698,55.755864,pm2rdm&what=here&lang=ru_RU">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Админ-панель (скрыта по умолчанию) -->
+    <section id="adminPanel" class="admin-panel">
+        <h2>🔐 Админ-панель</h2>
+        <h3>📋 Заявки от клиентов</h3>
+        <div id="requestsList"></div>
+        <button id="clearRequestsBtn" class="btn" style="background:#c00; color:white;">🗑️ Очистить все заявки</button>
+        <hr style="margin: 1rem 0;">
+        <h3>⭐ Управление отзывами</h3>
+        <div id="adminReviewsList"></div>
+        <button id="clearReviewsBtn" class="btn" style="background:#c00; color:white;">🗑️ Очистить все отзывы</button>
+    </section>
+</div>
+
+<footer>
+    <p>© 2025 ООО «Магнит Окна» — Надёжные окна с душой. Все права защищены.</p>
+</footer>
+
+<script>
+    // === РАБОТА С LOCALSTORAGE (СОХРАНЕНИЕ ДАННЫХ) ===
+
+    // Загрузка данных из localStorage
+    function loadReviewsFromStorage() {
+        const stored = localStorage.getItem('magnit_okna_reviews');
+        if (stored) {
+            return JSON.parse(stored);
+        } else {
+            // Начальные отзывы (если нет сохранённых)
+            return [
+                { name: 'Ирина Смирнова', rating: 5, text: 'Заказывали ПВХ окна в квартиру. Менеджеры вежливые, монтаж за 1 день. Окна тёплые, спасибо «Магнит Окна»! Рекомендую.', date: '2025-01-15 14:30' },
+                { name: 'Андрей Волков', rating: 5, text: 'Сотрудничаем уже 3 года. Надёжный поставщик, окна качественные, брак минимален. Цены адекватные.', date: '2025-01-10 11:20' },
+                { name: 'Екатерина и Дмитрий', rating: 5, text: 'Поставили алюминиевое остекление на террасу – выглядит дорого, не продувает. Профи благодарность!', date: '2025-01-05 09:15' }
+            ];
+        }
+    }
+
+    function saveReviewsToStorage(reviews) {
+        localStorage.setItem('magnit_okna_reviews', JSON.stringify(reviews));
+    }
+
+    function loadRequestsFromStorage() {
+        const stored = localStorage.getItem('magnit_okna_requests');
+        if (stored) {
+            return JSON.parse(stored);
+        }
+        return [];
+    }
+
+    function saveRequestsToStorage(requests) {
+        localStorage.setItem('magnit_okna_requests', JSON.stringify(requests));
+    }
+
+    // Отображение отзывов на странице
+    function displayReviews() {
+        const reviews = loadReviewsFromStorage();
+        const container = document.getElementById('reviewsList');
+        
+        if (reviews.length === 0) {
+            container.innerHTML = '<div style="text-align:center; padding:20px;">Пока нет отзывов. Будьте первым!</div>';
+            return;
+        }
+        
+        container.innerHTML = reviews.slice().reverse().map(review => `
+            <div class="review-item">
+                <div class="review-name">${escapeHtml(review.name)}</div>
+                <p>${escapeHtml(review.text)}</p>
+                <small>⭐ ${review.rating}/5</small>
+                <div class="review-date">${review.date || 'недавно'}</div>
+            </div>
+        `).join('');
+    }
+
+    // Добавление отзыва
+    function addReview(name, rating, text) {
+        const reviews = loadReviewsFromStorage();
+        const date = new Date().toLocaleString('ru-RU');
+        reviews.push({ name, rating: parseInt(rating), text, date });
+        saveReviewsToStorage(reviews);
+        displayReviews();
+        if (document.getElementById('adminReviewsList')) {
+            displayAdminReviews();
+        }
+    }
+
+    // === ФОРМА ОТЗЫВА ===
+    const reviewForm = document.getElementById('reviewForm');
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('reviewName').value.trim();
+            const rating = document.getElementById('reviewRating').value;
+            const text = document.getElementById('reviewText').value.trim();
+            const msgDiv = document.getElementById('reviewMsg');
+            
+            if (!name || !text) {
+                msgDiv.innerHTML = '<div class="error-msg">Заполните имя и текст отзыва</div>';
+                setTimeout(() => msgDiv.innerHTML = '', 3000);
+                return;
+            }
+            
+            addReview(name, rating, text);
+            document.getElementById('reviewName').value = '';
+            document.getElementById('reviewText').value = '';
+            document.getElementById('reviewRating').value = '5';
+            msgDiv.innerHTML = '<div class="success-msg">Спасибо за отзыв!</div>';
+            setTimeout(() => msgDiv.innerHTML = '', 3000);
+        });
+    }
+
+    // === ФОРМА ЗАЯВКИ ===
+    function addRequest(name, contact, message) {
+        const requests = loadRequestsFromStorage();
+        const date = new Date().toLocaleString('ru-RU');
+        requests.push({ name, contact, message, date, status: 'новый' });
+        saveRequestsToStorage(requests);
+        if (document.getElementById('requestsList')) {
+            displayAdminRequests();
+        }
+    }
+
+    const callbackForm = document.getElementById('callbackForm');
+    if (callbackForm) {
+        callbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('callbackName').value.trim();
+            const contact = document.getElementById('callbackContact').value.trim();
+            const message = document.getElementById('callbackMsg').value.trim();
+            const msgDiv = document.getElementById('callbackMsgResult');
+            
+            if (!name || !contact) {
+                msgDiv.innerHTML = '<div class="error-msg">Заполните имя и контактные данные</div>';
+                setTimeout(() => msgDiv.innerHTML = '', 3000);
+                return;
+            }
+            
+            addRequest(name, contact, message);
+            callbackForm.reset();
+            msgDiv.innerHTML = '<div class="success-msg">✅ Заявка отправлена! Менеджер свяжется с вами.</div>';
+            setTimeout(() => msgDiv.innerHTML = '', 3000);
+        });
+    }
+
+    // === АДМИН-ПАНЕЛЬ ===
+    function displayAdminRequests() {
+        const requests = loadRequestsFromStorage();
+        const container = document.getElementById('requestsList');
+        if (!container) return;
+        
+        if (requests.length === 0) {
+            container.innerHTML = '<p>Нет заявок</p>';
+            return;
+        }
+        
+        container.innerHTML = requests.slice().reverse().map(req => `
+            <div class="request-item">
+                <strong>${escapeHtml(req.name)}</strong><br>
+                <strong>Контакт:</strong> ${escapeHtml(req.contact)}<br>
+                <strong>Сообщение:</strong> ${escapeHtml(req.message || '-')}<br>
+                <small>📅 ${req.date} | ${req.status}</small>
+            </div>
+        `).join('');
+    }
+    
+    function displayAdminReviews() {
+        const reviews = loadReviewsFromStorage();
+        const container = document.getElementById('adminReviewsList');
+        if (!container) return;
+        
+        if (reviews.length === 0) {
+            container.innerHTML = '<p>Нет отзывов</p>';
+            return;
+        }
+        
+        container.innerHTML = reviews.slice().reverse().map(rev => `
+            <div class="request-item">
+                <strong>${escapeHtml(rev.name)}</strong> ⭐ ${rev.rating}/5<br>
+                <p style="margin-top:5px;">${escapeHtml(rev.text)}</p>
+                <small>📅 ${rev.date}</small>
+            </div>
+        `).join('');
+    }
+    
+    function clearAllRequests() {
+        if (confirm('Удалить все заявки?')) {
+            saveRequestsToStorage([]);
+            displayAdminRequests();
+        }
+    }
+    
+    function clearAllReviews() {
+        if (confirm('Удалить все отзывы? Восстановить будет нельзя.')) {
+            saveReviewsToStorage([]);
+            displayReviews();
+            displayAdminReviews();
+        }
+    }
+    
+    // === АДМИНКА: ПОКАЗ/СКРЫТИЕ ===
+    let adminVisible = false;
+    const adminPanel = document.getElementById('adminPanel');
+    const adminToggleBtn = document.getElementById('adminToggleBtn');
+    
+    if (adminToggleBtn) {
+        adminToggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!adminVisible) {
+                // Пароль: 1234 (для диплома можно простой)
+                const password = prompt('Введите пароль администратора:');
+                if (password === '1234') {
+                    adminVisible = true;
+                    adminPanel.classList.add('show');
+                    displayAdminRequests();
+                    displayAdminReviews();
+                } else {
+                    alert('Неверный пароль');
+                }
+            } else {
+                adminVisible = false;
+                adminPanel.classList.remove('show');
+            }
+        });
+    }
+    
+    const clearRequestsBtn = document.getElementById('clearRequestsBtn');
+    if (clearRequestsBtn) {
+        clearRequestsBtn.addEventListener('click', clearAllRequests);
+    }
+    
+    const clearReviewsBtn = document.getElementById('clearReviewsBtn');
+    if (clearReviewsBtn) {
+        clearReviewsBtn.addEventListener('click', clearAllReviews);
+    }
+    
+    // === ЗАЩИТА ОТ XSS ===
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+    
+    // === ПЛАВНАЯ ПРОКРУТКА ===
+    document.querySelectorAll('nav a').forEach(anchor => {
+        if (anchor.id !== 'adminToggleBtn') {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        }
+    });
+    
+    // Загрузка отзывов при старте
+    displayReviews();
+</script>
+</body>
+</html>
